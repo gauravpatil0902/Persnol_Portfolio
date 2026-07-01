@@ -1,0 +1,234 @@
+<section id="about" class="about">
+    <style>
+        .about {
+            position: relative;
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #fbfaff 0%, #f3efff 48%, #ffffff 100%);
+            color: #14111f;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            left: -160px;
+            top: 80px;
+            background: rgba(139, 92, 246, 0.16);
+            border-radius: 50%;
+            filter: blur(70px);
+        }
+
+        .about::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            right: -140px;
+            bottom: 60px;
+            background: rgba(177, 92, 255, 0.13);
+            border-radius: 50%;
+            filter: blur(70px);
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1160px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 390px 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .profile-img {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img::before {
+            content: "";
+            position: absolute;
+            width: 310px;
+            height: 380px;
+            top: -22px;
+            left: 10px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #8b5cf6, #c084fc);
+            transform: rotate(-5deg);
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        .profile-img img {
+            width: 320px;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 26px;
+            border: 8px solid #ffffff;
+            box-shadow: 0 24px 60px rgba(68, 40, 120, 0.22);
+        }
+
+        .about-link {
+            margin-top: 30px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .about-link a {
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #14111f;
+            font-size: 1.25rem;
+            text-decoration: none;
+            background: #ffffff;
+            border: 1px solid rgba(139, 92, 246, 0.18);
+            box-shadow: 0 12px 28px rgba(68, 40, 120, 0.10);
+            transition: 0.3s ease;
+        }
+
+        .about-link a:hover {
+            color: #fff;
+            background: #8b5cf6;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(139, 92, 246, 0.30);
+        }
+
+        #whatsapp {
+            font-size: 1.35rem;
+        }
+
+        .about-text {
+            position: relative;
+            padding: 46px;
+            background: rgba(255, 255, 255, 0.86);
+            border-radius: 28px;
+            border: 1px solid rgba(139, 92, 246, 0.16);
+            box-shadow: 0 24px 70px rgba(68, 40, 120, 0.12);
+        }
+
+        .about .section-title {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+            color: #14111f;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .about .section-title::after {
+            content: "";
+            display: block;
+            width: 78px;
+            height: 5px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #7b35ff, #b15cff);
+            margin-top: 14px;
+        }
+
+        .about-short-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #393247;
+            margin-bottom: 20px;
+        }
+
+        .read-more-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14px;
+            min-width: 150px;
+            height: 50px;
+            border-radius: 14px;
+            color: #fff;
+            background: #14111f;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .read-more-link:hover {
+            background: #8b5cf6;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 34px rgba(139, 92, 246, 0.30);
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 6rem 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+
+            .profile-img::before {
+                left: 50%;
+                transform: translateX(-50%) rotate(-5deg);
+            }
+
+            .profile-img img {
+                width: 280px;
+                height: 340px;
+            }
+
+            .about-text {
+                padding: 36px 26px;
+            }
+
+            .about .section-title {
+                font-size: 2.4rem;
+            }
+
+            .about .section-title::after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+
+    <div class="about-content">
+        <div class="profile-img">
+            <img src="{{ url_for('static', filename='images/Hiro tera bhai.png') }}" alt="profile">
+
+            <div class="about-link">
+                <a href="https://github.com/gauravpatil0902" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gaurav-patil-9b8799321/?skipRedirect=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://drive.google.com/file/d/11MgPC93BNTlymXTizvJHi7y1gFooNjee/view?usp=sharing" target="_blank"><i class="fa-regular fa-file"></i></a>
+                <a href="https://wa.me/918830691277?text=Hii Gaurav Patil I'am Come From Your Web-Site" target="_blank">
+                    <i id="whatsapp" class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="about-text">
+            <h2 class="section-title">About me</h2>
+
+            <p class="about-short-text">
+                I’m Gaurav Patil, currently pursuing my Master’s degree at Chandigarh University.
+                I’m passionate about Python-based development, backend systems, and creating
+                practical web applications using Django, Flask, and modern frontend technologies.
+            </p>
+
+            <p class="about-short-text">
+                I enjoy building efficient, scalable, and user-focused digital solutions while
+                continuously learning new tools, frameworks, and development practices.
+            </p>
+
+            <a href="{{ url_for('about_page') }}" class="read-more-link">Read More</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,291 @@
+<section class="works" id="work">
+    <style>
+        .works {
+            position: relative;
+            padding: 7rem 2rem;
+            background:
+                radial-gradient(circle at 14% 18%, rgba(139, 92, 246, 0.12), transparent 28%),
+                radial-gradient(circle at 86% 80%, rgba(177, 92, 255, 0.10), transparent 32%),
+                linear-gradient(135deg, #fbfaff 0%, #ffffff 44%, #f4efff 100%);
+            color: #14111f;
+            overflow: hidden;
+        }
+
+        .works::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            left: -180px;
+            bottom: 80px;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.12);
+            filter: blur(70px);
+        }
+
+        .work-section {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .works .section-title {
+            font-size: clamp(2.6rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #14111f;
+            margin-bottom: 4rem;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .works .section-title::after {
+            content: "";
+            display: block;
+            width: 88px;
+            height: 5px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #7b35ff, #b15cff);
+            margin-top: 16px;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 28px;
+        }
+
+        .work-card {
+            grid-column: span 2;
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(139, 92, 246, 0.16);
+            box-shadow: 0 22px 60px rgba(68, 40, 120, 0.12);
+            transition: 0.35s ease;
+        }
+
+        .work-card:nth-child(4) {
+            grid-column: 2 / span 2;
+        }
+
+        .work-card:nth-child(5) {
+            grid-column: 4 / span 2;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 28px 80px rgba(68, 40, 120, 0.18);
+        }
+
+        .work-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .work-info {
+            padding: 28px;
+        }
+
+        .work-info h2 {
+            font-size: 1.35rem;
+            color: #14111f;
+            margin-bottom: 14px;
+        }
+
+        .work-info p {
+            color: #4a4358;
+            line-height: 1.75;
+            font-size: 0.98rem;
+        }
+
+        .work-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .work-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            height: 46px;
+            padding: 0 18px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .details-btn {
+            color: #fff;
+            background: #14111f;
+        }
+
+        .source-btn {
+            color: #6d28d9;
+            background: rgba(139, 92, 246, 0.10);
+            border: 1px solid rgba(139, 92, 246, 0.22);
+        }
+
+        .work-actions a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 34px rgba(139, 92, 246, 0.24);
+        }
+
+        .details-btn:hover {
+            background: #8b5cf6;
+        }
+
+        @media (max-width: 1024px) {
+            .works-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .work-card,
+            .work-card:nth-child(4),
+            .work-card:nth-child(5) {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .works {
+                padding: 5.5rem 1.2rem;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-img {
+                height: 220px;
+            }
+        }
+    </style>
+
+    <div class="work-section">
+        <h2 class="section-title">Recent Works</h2>
+
+        <div class="works-grid">
+            <div class="work-card">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Amazon-Style E-Commerce Platform" class="work-img">
+
+                <div class="work-info">
+                    <h2>Amazon-Style E-Commerce Platform</h2>
+
+                    <p>
+                        Developed a full-stack e-commerce web application inspired by Amazon using Django.
+                    </p>
+
+                    <div class="work-actions">
+                        <a href="{{ url_for('project_page', project_name='Amazon-Style E-Commerce Platform') }}" class="details-btn">
+                            View Details
+                        </a>
+
+                        <a href="https://github.com/gauravpatil0902/Book_Store-E-Commerce-Site" target="_blank" class="source-btn">
+                            <i class="fas fa-external-link-alt"></i> Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="{{ url_for('static', filename='images/flask.jpg') }}" alt="Professional Portfolio Site" class="work-img">
+
+                <div class="work-info">
+                    <h2>Professional Portfolio Site</h2>
+
+                    <p>
+                        Developed a responsive portfolio website using Flask, Python,
+                        HTML, CSS, and JavaScript to showcase my profile professionally.
+                    </p>
+
+                    <div class="work-actions">
+                        <a href="{{ url_for('project_page', project_name='portfolio-site') }}" class="details-btn">
+                            View Details
+                        </a>
+
+                        <a href="" target="_blank" class="source-btn">
+                            <i class="fas fa-external-link-alt"></i> Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="{{ url_for('static', filename='images/py.jpeg') }}" alt="Web Scraping Project" class="work-img">
+
+                <div class="work-info">
+                    <h2>Web Scraping</h2>
+
+                    <p>
+                        Developed a Python web scraping application using BeautifulSoup
+                        and Requests to extract medicine details and pricing data.
+                    </p>
+
+                    <div class="work-actions">
+                        <a href="{{ url_for('project_page', project_name='web-scraping') }}" class="details-btn">
+                            View Details
+                        </a>
+
+                        <a href="https://github.com/gauravpatil0902/-Medicine-Data-Extraction-System" target="_blank" class="source-btn">
+                            <i class="fas fa-external-link-alt"></i> Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="{{ url_for('static', filename='images/lab.jpg') }}" alt="Library Management System" class="work-img">
+
+                <div class="work-info">
+                    <h2>Library Management System</h2>
+
+                    <p>
+                        Developed a Django REST API project to manage books, members,
+                        and library issue/return records with database-backed endpoints.
+                    </p>
+
+                    <div class="work-actions">
+                        <a href="{{ url_for('project_page', project_name='library-management') }}" class="details-btn">
+                            View Details
+                        </a>
+
+                        <a href="https://github.com/gauravpatil0902/Library-Management-System" target="_blank" class="source-btn">
+                            <i class="fas fa-external-link-alt"></i> Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="{{ url_for('static', filename='images/rbac.png') }}" alt="RBA System" class="work-img">
+
+                <div class="work-info">
+                    <h2>RBA System</h2>
+
+                    <p>
+                        Developed a Django REST API authentication system with user
+                        login, protected endpoints, roles, and permission-based access.
+                    </p>
+
+                    <div class="work-actions">
+                        <a href="{{ url_for('project_page', project_name='role-based-authentication') }}" class="details-btn">
+                            View Details
+                        </a>
+
+                        <a href="https://github.com/gauravpatil0902/rbac-system-django" target="_blank" class="source-btn">
+                            <i class="fas fa-external-link-alt"></i> Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>Gaurav Patil Portfolio</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <header id="home" class="header">
+        <canvas id="starCanvas"></canvas>
+
+        <div class="header-content">
+            <div class="hero-text">
+                <span class="intro-text">HELLO, I'M</span>
+
+                <h1>
+                    Gaurav <span>Patil</span>
+                </h1>
+
+                <h3>Aspiring Software Engineer</h3>
+
+                <p>
+                    Passionate about building efficient and scalable web applications
+                    and turning ideas into real-world solutions.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="{{ url_for('section_page', section_name='contact') }}" class="btn-primary">Get In Touch</a>
+
+                    <a href="https://drive.google.com/file/d/11MgPC93BNTlymXTizvJHi7y1gFooNjee/view?usp=sharing"
+                       class="btn-secondary" target="_blank">
+                       View Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% include 'about.html' %}
+
+    {% include 'skills.html' %}
+
+    {% include 'projects.html' %}
+
+    {% include 'education.html' %}
+
+    {% include 'contact.html' %}
+
+    <footer class="footer">
+        <p>© 2026 <a href="/" class="Footername">Gaurav Patil</a> All rights reserved.</p>
+
+        <div class="social-links">
+            <a href="https://github.com/gauravpatil0902" target="blank">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/gaurav-patil-9b8799321/?skipRedirect=true" target="">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="https://wa.me/918830691277?text=Hii Gaurav Patil I'am Come From Your Web-Site" target="">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="https://drive.google.com/file/d/11MgPC93BNTlymXTizvJHi7y1gFooNjee/view?usp=sharing" target="">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    {% if scroll_target %}
+    <script>
+        window.addEventListener("load", function () {
+            const target = document.getElementById("{{ scroll_target }}");
+
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    </script>
+    {% endif %}
+
+    <script>
+        const menuButton = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-link");
+
+        if (menuButton && navLinks) {
+            menuButton.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        }
+    </script>
+
+    <script>
+        $('.skills-grid').slick({
+            centerMode: true,
+            centerPadding: '0px',
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: true,
+            dots: false,
+            focusOnSelect: true,
+            speed: 500
+        });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/scroll-animations.js') }}"></script>
+
+    <script>
+    const canvas = document.getElementById("starCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let stars = [];
+    let width;
+    let height;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    function resizeCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        createStars();
+    }
+
+    function createStars() {
+        stars = [];
+
+        const totalStars = window.innerWidth < 768 ? 180 : 360;
+
+        for (let i = 0; i < totalStars; i++) {
+            const isPurple = Math.random() > 0.78;
+            const isBright = Math.random() > 0.88;
+
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: isBright ? Math.random() * 1.2 + 0.7 : Math.random() * 0.8 + 0.25,
+                color: isPurple ? "155, 77, 255" : "255, 255, 255",
+                alpha: Math.random() * 0.55 + 0.25,
+                twinkle: Math.random() * 0.025 + 0.006,
+                twinkleDirection: Math.random() > 0.5 ? 1 : -1,
+                driftX: (Math.random() - 0.5) * 0.12,
+                driftY: (Math.random() - 0.5) * 0.12,
+                depth: Math.random() * 0.8 + 0.2,
+                glow: isBright
+            });
+        }
+    }
+
+    function drawNebula() {
+        const glow1 = ctx.createRadialGradient(width * 0.65, height * 0.45, 0, width * 0.65, height * 0.45, width * 0.55);
+        glow1.addColorStop(0, "rgba(130, 60, 255, 0.10)");
+        glow1.addColorStop(0.45, "rgba(80, 20, 160, 0.05)");
+        glow1.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+        ctx.fillStyle = glow1;
+        ctx.fillRect(0, 0, width, height);
+
+        const glow2 = ctx.createRadialGradient(width * 0.25, height * 0.75, 0, width * 0.25, height * 0.75, width * 0.45);
+        glow2.addColorStop(0, "rgba(155, 77, 255, 0.08)");
+        glow2.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+        ctx.fillStyle = glow2;
+        ctx.fillRect(0, 0, width, height);
+    }
+
+    function animateStars() {
+        ctx.clearRect(0, 0, width, height);
+
+        ctx.fillStyle = "#030014";
+        ctx.fillRect(0, 0, width, height);
+
+        drawNebula();
+
+        for (let star of stars) {
+            star.x += star.driftX;
+            star.y += star.driftY;
+
+            if (star.x < -10) star.x = width + 10;
+            if (star.x > width + 10) star.x = -10;
+            if (star.y < -10) star.y = height + 10;
+            if (star.y > height + 10) star.y = -10;
+
+            star.alpha += star.twinkle * star.twinkleDirection;
+
+            if (star.alpha > 0.9 || star.alpha < 0.2) {
+                star.twinkleDirection *= -1;
+            }
+
+            const parallaxX = mouseX * star.depth * 8;
+            const parallaxY = mouseY * star.depth * 8;
+
+            ctx.beginPath();
+
+            ctx.fillStyle = `rgba(${star.color}, ${star.alpha})`;
+
+            if (star.glow) {
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = `rgba(${star.color}, 0.8)`;
+            } else {
+                ctx.shadowBlur = 0;
+            }
+
+            ctx.arc(
+                star.x + parallaxX,
+                star.y + parallaxY,
+                star.radius,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+        }
+
+        ctx.shadowBlur = 0;
+
+        requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener("mousemove", function (e) {
+        mouseX = (e.clientX / width - 0.5) * 2;
+        mouseY = (e.clientY / height - 0.5) * 2;
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+
+    resizeCanvas();
+    animateStars();
+</script>
+</body>
+</html>
