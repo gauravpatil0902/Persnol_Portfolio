@@ -292,11 +292,54 @@
         }
 
         .skill-detail-info h1 {
-            font-size: 48px;
+            font-size: clamp(38px, 12vw, 48px);
+        }
+
+        .skill-stars {
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .skill-detail-page {
+            padding: 86px 1rem 64px;
+        }
+
+        .back-home {
+            margin-bottom: 28px;
+        }
+
+        .skill-detail-icon {
+            width: 210px;
+            height: 210px;
+            border-radius: 26px;
+        }
+
+        .skill-detail-icon::before {
+            width: 170px;
+            height: 170px;
+            border-radius: 24px;
+        }
+
+        .skill-detail-info {
+            padding: 28px 18px;
+            border-radius: 22px;
+        }
+
+        .skill-detail-info .intro-text {
+            letter-spacing: 3px;
+        }
+
+        .star {
+            font-size: 24px;
+        }
+
+        .skill-detail-grid > div {
+            padding: 20px 18px;
+            border-radius: 18px;
         }
     }
 </style>
-        </style>
 
         <div class="skill-detail-container">
             <a href="{{ url_for('section_page', section_name='skills') }}" class="back-home animate-up delay-1">Back to Skills</a>

@@ -153,6 +153,31 @@
                 font-size: 1.2rem;
             }
         }
+
+        @media (max-width: 420px) {
+            .education {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .education-title {
+                margin-bottom: 2.5rem;
+            }
+
+            .education-card {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .education-timeline::before {
+                display: none;
+            }
+
+            .education-box {
+                padding: 22px 18px;
+                border-radius: 22px;
+            }
+        }
     </style>
 
     <div class="education-content">

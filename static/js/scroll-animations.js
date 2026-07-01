@@ -1,4 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".navbar");
+    const navLinks = document.querySelector(".nav-link");
+    const sectionLinks = document.querySelectorAll('a[href*="#"]');
+
+    function scrollToSection(hash, behavior = "smooth") {
+        const target = document.querySelector(hash);
+
+        if (!target) {
+            return false;
+        }
+
+        target.scrollIntoView({
+            behavior,
+            block: "start"
+        });
+
+        if (navLinks) {
+            navLinks.classList.remove("active");
+        }
+
+        return true;
+    }
+
+    sectionLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const url = new URL(link.href, window.location.href);
+
+            if (
+                url.origin === window.location.origin &&
+                url.pathname === window.location.pathname &&
+                url.hash
+            ) {
+                event.preventDefault();
+
+                if (scrollToSection(url.hash)) {
+                    history.pushState(null, "", url.hash);
+                }
+            }
+        });
+    });
+
+    if (window.location.hash) {
+        setTimeout(function () {
+            scrollToSection(window.location.hash, "smooth");
+        }, 120);
+    }
+
     const revealSelectors = [
         ".about .profile-img",
         ".about .about-text",

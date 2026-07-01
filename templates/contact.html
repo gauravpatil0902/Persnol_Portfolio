@@ -1,7 +1,7 @@
 <section class="contact" id="contact">
     <!-- EmailJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>emailjs.init("IECIK2HGSkNoQSmeG");</script>  <!-- 👈 paste your Public Key -->
+    <script>emailjs.init("IECIK2HGSkNoQSmeG");</script>  
 
     <style>
         .contact {
@@ -201,6 +201,36 @@
                 padding: 22px;
             }
         }
+
+        @media (max-width: 420px) {
+            .contact {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .contact-title {
+                margin-bottom: 2rem;
+            }
+
+            .contact-info-card {
+                align-items: flex-start;
+                gap: 16px;
+                padding: 20px 16px;
+                border-radius: 22px;
+            }
+
+            .contact-info-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+                font-size: 1.3rem;
+            }
+
+            .contact-form {
+                padding: 24px 18px;
+                border-radius: 22px;
+            }
+        }
     </style>
 
     <div class="contact-content">
@@ -234,7 +264,7 @@
                     </span>
                     <div>
                         <h3>Location</h3>
-                        <p>Shirpur, Maharashtra, India</p>
+                        <p>Pune, Maharashtra, India</p>
                     </div>
                 </div>
             </div>
@@ -298,7 +328,7 @@
                 to_name:    'Gaurav',
             };
 
-            emailjs.send('service_bwio72h', 'template_r9anxfw', templateParams)  // 👈 paste your Service ID and Template ID
+            emailjs.send('service_bwio72h', 'template_r9anxfw', templateParams)  
                 .then(() => {
                     btn.textContent = '✅ Message Sent!';
                     btn.style.background = 'linear-gradient(135deg, #16a34a, #22c55e)';

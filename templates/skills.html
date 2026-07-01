@@ -39,6 +39,7 @@
 
         .skill-link {
             display: block;
+            width: 100%;
             color: inherit;
             text-decoration: none;
         }
@@ -91,6 +92,10 @@
             align-items: center;
         }
 
+        .slick-slide > div {
+            width: 100%;
+        }
+
         .slick-prev,
         .slick-next {
             width: 45px !important;
@@ -116,6 +121,39 @@
             color: #000 !important;
             font-size: 24px !important;
             opacity: 1 !important;
+        }
+
+        .skill-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 1000;
+            width: 46px;
+            height: 46px;
+            border: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #14111f;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 14px 30px rgba(68, 40, 120, 0.2);
+            transform: translateY(-50%);
+            transition: 0.25s ease;
+        }
+
+        .skill-arrow:hover {
+            color: #fff;
+            background: #8b5cf6;
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .skill-arrow-prev {
+            left: 10px;
+        }
+
+        .skill-arrow-next {
+            right: 10px;
         }
 
         .skills-card i {
@@ -151,9 +189,106 @@
         }
 
         @media (max-width: 780px) {
+            .skills {
+                padding: 5.5rem 1.2rem;
+            }
+
+            .skills-content {
+                overflow: visible;
+            }
+
+            .skills-grid {
+                margin-top: 2.5rem;
+                padding: 1rem 0 2.5rem;
+            }
+
             .skills-card {
-                max-width: 240px;
+                width: min(340px, calc(100vw - 48px));
+                max-width: none;
                 min-height: 260px;
+                margin: 12px auto;
+                padding: 1.6rem;
+            }
+
+            .slick-list {
+                overflow: hidden !important;
+            }
+
+            .slick-slide {
+                filter: none;
+                opacity: 1;
+                transform: none;
+                padding: 0;
+            }
+
+            .slick-dots {
+                bottom: -20px;
+            }
+
+            .slick-dots li button::before {
+                color: #8b5cf6;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .skills {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .skills-grid {
+                padding-bottom: 5.25rem;
+            }
+
+            .skills-card {
+                width: min(320px, calc(100vw - 32px));
+                min-height: 250px;
+                padding: 1.45rem;
+            }
+
+            .skills-card h3 {
+                font-size: 1.35rem;
+            }
+
+            .skills-card p {
+                font-size: 0.96rem;
+            }
+
+            .slick-prev,
+            .slick-next,
+            .skill-arrow {
+                top: auto !important;
+                bottom: 0 !important;
+                transform: none !important;
+                width: 48px !important;
+                height: 48px !important;
+                background: #ffffff !important;
+                border: 1px solid rgba(139, 92, 246, 0.18);
+                box-shadow: 0 14px 30px rgba(68, 40, 120, 0.18);
+                display: inline-flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .slick-prev,
+            .skill-arrow-prev {
+                left: calc(50% - 60px) !important;
+            }
+
+            .slick-next,
+            .skill-arrow-next {
+                right: calc(50% - 60px) !important;
+            }
+
+            .slick-prev::before,
+            .slick-next::before {
+                color: #14111f !important;
+                font-size: 26px !important;
+            }
+
+            .skill-arrow i {
+                font-size: 1rem;
+                line-height: 1;
             }
         }
     </style>

@@ -8,13 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+        
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body.pre-scroll {
+            visibility: hidden;
+        }
+    </style>
 
     <title>Gaurav Patil Portfolio</title>
 </head>
 
-<body>
+<body class="{% if scroll_target %}pre-scroll{% endif %}">
     {% include 'navbar.html' %}
 
     <header id="home" class="header">
@@ -38,7 +44,7 @@
                 <div class="hero-buttons">
                     <a href="{{ url_for('section_page', section_name='contact') }}" class="btn-primary">Get In Touch</a>
 
-                    <a href="https://drive.google.com/file/d/11MgPC93BNTlymXTizvJHi7y1gFooNjee/view?usp=sharing"
+                    <a href="https://drive.google.com/file/d/10l6ZkpbCAdvMGCj6gH67Fm0Onf_L_w6t/view?usp=drive_link"
                        class="btn-secondary" target="_blank">
                        View Resume
                     </a>
@@ -88,11 +94,15 @@
     {% if scroll_target %}
     <script>
         window.addEventListener("load", function () {
-            const target = document.getElementById("{{ scroll_target }}");
+            setTimeout(function () {
+                const target = document.getElementById("{{ scroll_target }}");
 
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
+                if (target) {
+                    target.scrollIntoView({ behavior: "auto", block: "start" });
+                }
+
+                document.body.style.visibility = "visible";
+            }, 1000);
         });
     </script>
     {% endif %}
@@ -118,7 +128,29 @@
             arrows: true,
             dots: false,
             focusOnSelect: true,
-            speed: 500
+            speed: 500,
+            prevArrow: '<button type="button" class="skill-arrow skill-arrow-prev" aria-label="Previous skill"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="skill-arrow skill-arrow-next" aria-label="Next skill"><i class="fas fa-chevron-right"></i></button>',
+            responsive: [
+                {
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 1,
+                        centerMode: true,
+                        centerPadding: '80px'
+                    }
+                },
+                {
+                    breakpoint: 560,
+                    settings: {
+                        slidesToShow: 1,
+                        centerMode: false,
+                        centerPadding: '0px',
+                        arrows: true,
+                        dots: false
+                    }
+                }
+            ]
         });
     </script>
 

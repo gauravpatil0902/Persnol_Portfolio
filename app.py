@@ -129,7 +129,7 @@ projects_data = {
     "portfolio-site": {
         "title": "Professional Portfolio Site",
         "image": "images/port.png",
-        "source": "https://github.com/gauravpatil0902/flask_projects/tree/main/portfolio_projects",
+        "source": "https://github.com/gauravpatil0902/Persnol_Portfolio",
         "description": "A responsive portfolio website developed using Flask, Python, HTML, CSS, and JavaScript to showcase projects, skills, resume, and contact information professionally.",
         "tech_stack": ["Python", "Flask", "HTML", "CSS", "JavaScript", "SQLite"],
         "features": ["Animated hero section", "Contact form", "Skills carousel", "Project showcase", "Responsive layout"],
