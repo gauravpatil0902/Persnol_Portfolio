@@ -103,7 +103,7 @@ skills_data = {
 }
 
 projects_data = {
-    "Amazon-Style E-Commerce Platform": {
+    "ecommerce-platform": {
         "title": "Amazon-Style E-Commerce Platform",
         "image": "images/fit_2.png",
         "source": "https://github.com/gauravpatil0902/Book_Store-E-Commerce-Site",
@@ -167,7 +167,7 @@ projects_data = {
     "library-management": {
         "title": "Library Management System",
         "image": "images/lab.jpg",
-        "source": "https://github.com/gauravpatil0902",
+        "source": "https://github.com/gauravpatil0902/Library-Management-System",
         "description": "A Django REST API project for managing library records, books, members, and issue/return operations with clean API endpoints and database-driven functionality.",
         "tech_stack": ["Python", "Django", "Django REST Framework", "SQLite/MySQL", "REST API"],
         "features": ["Book management APIs", "Member record management", "Issue and return tracking", "CRUD operations", "Database-backed API responses"],

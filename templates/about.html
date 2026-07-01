@@ -198,11 +198,37 @@
                 margin-right: auto;
             }
         }
+
+        @media (max-width: 420px) {
+            .about {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .profile-img::before {
+                width: 240px;
+                height: 310px;
+            }
+
+            .profile-img img {
+                width: min(250px, 100%);
+                height: 310px;
+            }
+
+            .about-text {
+                padding: 28px 18px;
+                border-radius: 22px;
+            }
+
+            .about .section-title {
+                font-size: 2rem;
+            }
+        }
     </style>
 
     <div class="about-content">
         <div class="profile-img">
-            <img src="{{ url_for('static', filename='images/Hiro tera bhai.png') }}" alt="profile">
+            <img src="{{ url_for('static', filename='images/profile.png') }}" alt="profile">
 
             <div class="about-link">
                 <a href="https://github.com/gauravpatil0902" target="_blank"><i class="fab fa-github"></i></a>

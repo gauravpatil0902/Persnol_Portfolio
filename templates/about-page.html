@@ -223,6 +223,44 @@
                     justify-content: center;
                 }
             }
+
+            @media (max-width: 420px) {
+                .about-detail-page {
+                    padding: 86px 1rem 64px;
+                }
+
+                .back-home {
+                    margin-bottom: 28px;
+                }
+
+                .about-detail-image {
+                    max-width: 260px;
+                }
+
+                .about-detail-image::before {
+                    width: 220px;
+                    height: 300px;
+                }
+
+                .about-detail-image img {
+                    height: 315px;
+                    border-width: 6px;
+                    border-radius: 22px;
+                }
+
+                .about-detail-text {
+                    padding: 28px 18px;
+                    border-radius: 22px;
+                }
+
+                .about-detail-text h1 {
+                    font-size: 38px;
+                }
+
+                .about-detail-text .intro-text {
+                    letter-spacing: 3px;
+                }
+            }
         </style>
 
         <div class="about-detail-container">
@@ -230,7 +268,7 @@
 
             <div class="about-detail-grid">
                 <div class="about-detail-image animate-left delay-2">
-                    <img src="{{ url_for('static', filename='images/Hiro tera bhai.png') }}" alt="Gaurav Patil">
+                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Gaurav Patil">
                 </div>
 
                 <div class="about-detail-text animate-right delay-3">

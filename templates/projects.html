@@ -167,6 +167,30 @@
                 height: 220px;
             }
         }
+
+        @media (max-width: 420px) {
+            .works {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .works .section-title {
+                margin-bottom: 2.5rem;
+            }
+
+            .work-card {
+                border-radius: 22px;
+            }
+
+            .work-info {
+                padding: 22px 18px;
+            }
+
+            .work-actions a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 
     <div class="work-section">
@@ -184,7 +208,7 @@
                     </p>
 
                     <div class="work-actions">
-                        <a href="{{ url_for('project_page', project_name='Amazon-Style E-Commerce Platform') }}" class="details-btn">
+                        <a href="{{ url_for('project_page', project_name='ecommerce-platform') }}" class="details-btn">
                             View Details
                         </a>
 
